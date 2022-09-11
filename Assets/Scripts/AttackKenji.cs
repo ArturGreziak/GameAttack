@@ -5,13 +5,16 @@ using UnityEngine;
 public class AttackKenji : MonoBehaviour
 {
     public Animator anim;
-    void Start()
-    {
-        anim = GetComponent<Animator>();
-    }
-
-    public void Mack()
+    public void Kenji()
     {
         anim.SetBool("Kenji", true);
+        StartCoroutine(EndAnimCoroutine());
+    }
+
+    private IEnumerator EndAnimCoroutine()
+    {
+        yield return new WaitForSeconds(0.02f);
+        anim.SetBool("Kenji", false);
+
     }
 }
